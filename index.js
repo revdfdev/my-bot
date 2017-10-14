@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
     res.send('Hello i am a chat bot !');
 });
 
-app.post('/webhook', function (req, res) {
+app.post('/webhook/', function (req, res) {
     var data = req.body;
   
     // Make sure this is a page subscription
@@ -51,6 +51,7 @@ app.post('/webhook', function (req, res) {
     // Putting a stub for now, we'll expand it in the following steps
     console.log("Message data: ", event.message);
 } */
+
 
 function receivedMessage(event) {
     var senderID = event.sender.id;
@@ -122,7 +123,7 @@ function receivedMessage(event) {
       }
     });  
   }
-
+  
 app.get('/webhook/', function(req, res) {
     if (req.query['hub.verify_token'] === token) {
         res.send(req.query['hub.challenge']);
