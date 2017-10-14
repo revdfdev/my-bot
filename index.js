@@ -105,7 +105,7 @@ function receivedMessage(event) {
   function callSendAPI(messageData) {
     request({
       uri: 'https://graph.facebook.com/v2.6/me/messages',
-      qs: { access_token: PAGE_ACCESS_TOKEN },
+      qs: { access_token: access },
       method: 'POST',
       json: messageData
   
@@ -123,7 +123,7 @@ function receivedMessage(event) {
       }
     });  
   }
-  
+
 app.get('/webhook/', function(req, res) {
     if (req.query['hub.verify_token'] === token) {
         res.send(req.query['hub.challenge']);
